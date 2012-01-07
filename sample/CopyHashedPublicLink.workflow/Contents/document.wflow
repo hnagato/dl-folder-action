@@ -83,7 +83,7 @@ links = (ARGV || []).map {|p|
   mv p, "#{dirname}/#{filename}"
 
   "http://dl.dropbox.com/u/xxxxxxxxxx/#{filename}"
-}.join('\n')
+}.join("\n")
 
 
 IO.popen('pbcopy', 'w').print links
@@ -92,8 +92,8 @@ begin
   require 'rubygems'
   require 'notify'
   Notify.notify('Copied!', links)
-rescue
-  system "which growlnotify &gt;/dev/null 2&gt;&amp;1 &amp;&amp; growlnotify -m #{links} -t Copied!"
+rescue LoadError
+  system "which growlnotify &gt;/dev/null 2&gt;&amp;1 &amp;&amp; growlnotify -m '#{links}' -t 'Copied!'"
 end
 </string>
 					<key>CheckedForUserDefaultShell</key>
