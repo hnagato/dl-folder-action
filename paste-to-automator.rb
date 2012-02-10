@@ -19,7 +19,7 @@ links = (ARGV || []).map {|p|
   filename = File.basename p
   extname  = File.extname p
 
-  filename = "#{Digest::MD5.hexdigest(p)}#{extname}"
+  filename = "#{Digest::MD5.hexdigest(rand.to_s)}#{extname}"
 
   mv p, "#{dirname}/#{filename}"
 
