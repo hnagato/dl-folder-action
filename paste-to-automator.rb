@@ -19,7 +19,9 @@ links = (ARGV || []).map {|p|
   filename = File.basename p
   extname  = File.extname p
 
-  filename = "#{Digest::MD5.hexdigest(rand.to_s)}#{extname}"
+  next unless extname =~ /\A\.png\Z/i
+
+  filename = "#{Digest::MD5.hexdigest(p + rand.to_s)}#{extname}"
 
   mv p, "#{dirname}/#{filename}"
 
