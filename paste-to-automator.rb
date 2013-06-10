@@ -25,7 +25,7 @@ links = (ARGV || []).map {|p|
 
   mv p, "#{dirname}/#{filename}"
 
-  "http://dl.dropbox.com/u/#{YOUR_DROPBOX_ID}/#{filename}"
+  "https://dl.dropboxusercontent.com/u/#{YOUR_DROPBOX_ID}/#{filename}"
 }.join("\n")
 
 
